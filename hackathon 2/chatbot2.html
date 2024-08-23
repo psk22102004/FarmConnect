@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OpenAI Chatbot</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .chat-area {
+            height: 300px;
+            overflow-y: scroll;
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+        .message {
+            margin-bottom: 10px;
+        }
+        input[type="text"] {
+            width: calc(100% - 70px);
+            padding: 5px;
+            margin-right: 10px;
+        }
+        button {
+            padding: 5px 10px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>OpenAI Chatbot</h2>
+    <div class="chat-area" id="chatArea"></div>
+    <div>
+        <input type="text" id="messageInput" placeholder="Type your message...">
+        <button onclick="sendMessage()">Send</button>
+    </div>
+</div>
+
+<script>
+    function appendMessage(message, sender) {
+        const chatArea = document.getElementById("chatArea");
+        const messageElement = document.createElement("div");
+        messageElement.classList.add("message");
+        messageElement.textContent = `${sender}: ${message}`;
+        chatArea.appendChild(messageElement);
+        chatArea.scrollTop = chatArea.scrollHeight;
+    }
+
+    async function sendMessage() {
+        const messageInput = document.getElementById("messageInput");
+        const message = messageInput.value.trim();
+        if (message === "") return;
+        appendMessage(message, "You");
+
+        const apiKey = "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"; // Replace with your actual OpenAI API key
+        const url = "https://api.openai.com/v1/engines/davinci/completions";
+        const bearer = 'Bearer ' + apiKey;
+
+        try {
+            const response = await fetch(url, {
+                method: 'POST',
+                headers: {
+                    'Authorization': bearer,
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    "prompt": message,
+                    "max_tokens": 150,
+                    "temperature": 0.7,
+                    "top_p": 1,
+                    "n": 1,
+                    "stream": false,
+                    "logprobs": null,
+                    "stop": "\n"
+                })
+            });
+
+            const data = await response.json();
+            const botResponse = data.choices[0].text.trim();
+            appendMessage(botResponse, "Bot");
+
+        } catch (error) {
+            console.error('Error:', error);
+            appendMessage("An error occurred. Please try again later.", "Bot");
+        }
+
+        messageInput.value = "";
+    }
+</script>
+
+</body>
+</html>

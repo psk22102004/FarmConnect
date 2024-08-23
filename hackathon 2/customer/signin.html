@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Farming Website Signup/Login</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-green-200 min-h-screen flex items-center justify-center">
+  <div class="bg-white shadow-lg rounded-lg overflow-hidden w-full max-w-md border-2">
+    <div class="bg-green-600 text-white text-center py-6 px-4">
+      <h1 class="text-2xl font-bold">Welcome to FarmConnect</h1>
+      <p class="mt-1">Join our community or log in to continue</p>
+    </div>
+
+    <div class="px-8 py-6">
+      <div class="mb-4">
+        <button id="loginButton"
+          class="w-full bg-green-500 text-white py-2 rounded-full font-semibold hover:bg-green-600 focus:outline-none transition duration-150">
+          Log In
+        </button>
+      </div>
+      <div class="mb-4">
+        <button id="signupButton"
+          class="w-full bg-blue-500 text-white py-2 rounded-full font-semibold hover:bg-blue-600 focus:outline-none transition duration-150">
+          Sign Up
+        </button>
+      </div>
+    </div>
+
+    <div class="px-8 py-4 border-t">
+      <form class="space-y-4" id="loginForm">
+        <div>
+          <label class="block text-gray-700">Email Address</label>
+          <input type="email" placeholder="Enter your email"
+            class="w-full mt-2 p-2 border border-gray-300 rounded-md focus:outline-none focus:border-green-500 transition duration-150">
+        </div>
+        <div>
+          <label class="block text-gray-700">Password</label>
+          <input type="password" placeholder="Enter your password"
+            class="w-full mt-2 p-2 border border-gray-300 rounded-md focus:outline-none focus:border-green-500 transition duration-150">
+        </div>
+        <div class="flex justify-between items-center">
+          <div class="flex items-center">
+            <input type="checkbox" id="remember" class="mr-2">
+            <label for="remember" class="text-sm text-gray-600">Remember me</label>
+          </div>
+          <a href="#" class="text-sm text-green-500 hover:underline">Forgot password?</a>
+        </div>
+        <button
+          class="w-full bg-green-500 text-white py-2 rounded-full font-semibold hover:bg-green-600 focus:outline-none transition duration-150">
+          Log In
+        </button>
+      </form>
+
+      <form class="space-y-4 hidden" id="signupForm">
+        <div>
+          <label class="block text-gray-700">Full Name</label>
+          <input type="text" placeholder="Enter your full name"
+            class="w-full mt-2 p-2 border border-gray-300 rounded-md focus:outline-none focus:border-blue-500 transition duration-150">
+        </div>
+        <div>
+          <label class="block text-gray-700">Email Address</label>
+          <input type="email" placeholder="Enter your email"
+            class="w-full mt-2 p-2 border border-gray-300 rounded-md focus:outline-none focus:border-blue-500 transition duration-150">
+        </div>
+        <div>
+          <label class="block text-gray-700">Password</label>
+          <input type="password" placeholder="Create a password"
+            class="w-full mt-2 p-2 border border-gray-300 rounded-md focus:outline-none focus:border-blue-500 transition duration-150">
+        </div>
+        <button
+          class="w-full bg-blue-500 text-white py-2 rounded-full font-semibold hover:bg-blue-600 focus:outline-none transition duration-150">
+          Sign Up
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const loginForm = document.getElementById('loginForm');
+      const signupForm = document.getElementById('signupForm');
+      const loginButton = document.getElementById('loginButton');
+      const signupButton = document.getElementById('signupButton');
+
+      loginButton.addEventListener('click', () => {
+        loginForm.classList.remove('hidden');
+        signupForm.classList.add('hidden');
+      });
+
+      signupButton.addEventListener('click', () => {
+        signupForm.classList.remove('hidden');
+        loginForm.classList.add('hidden');
+      });
+    });
+  </script>
+</body>
+
+</html>

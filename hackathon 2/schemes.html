@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crop Information</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+        crossorigin="anonymous">
+    <!-- Custom CSS -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #81c408;
+            color: black;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 20px;
+        }
+
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center; /* Center align cards */
+            align-items: center; /* Center align vertically */
+        }
+
+        .col-md-6 {
+            width: calc(50% - 20px);
+            margin-bottom: 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-right: 20px; /* Add spacing */
+            margin-left: 20px; /* Add spacing */
+            margin-top: 20px; /* Add spacing */
+            margin-bottom: 20px; /* Add spacing */
+        }
+
+        .card-title {
+            font-size: 20px;
+            margin-bottom: 10px;
+            color: #81c408;
+        }
+
+        .card-subtitle {
+            font-size: 16px;
+            margin-bottom: 15px;
+        }
+
+        .card-text {
+            font-size: 14px;
+            line-height: 1.5;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 5; /* number of lines to show */
+            -webkit-box-orient: vertical;
+        }
+        
+
+        .btn {
+            padding: 8px 16px;
+            margin-top: 10px;
+            border-radius: 5px;
+            background-color: #81c408;
+            color: white;
+            text-decoration: none;
+            display: inline-block;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #6aa307;
+        }
+
+        @media (max-width: 768px) {
+            .col-md-6 {
+                width: calc(100% - 20px);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row" id="card-container">
+            <!-- Cards will be inserted here -->
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"
+        integrity="sha384-6S+MFF3Ldf5tprudW+FmlJuoKFCBs8/7CVM0k/3wk8Iw1fP86bURDvDa4+XlQ0iS"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+        crossorigin="anonymous"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const schemeJSON = [
+                {
+                    "SNo": 1,
+                    "Name": "Pradhan Mantri\nKisan Samman Nidhi (PM-KISAN)",
+                    "Purpose": "PM-KISAN is a central sector scheme launched on 24th February 2019 to supplement financial needs of land holding farmers, subject to exclusions. Under the scheme, financial benefit of Rs. 6000/- per year is transferred in three equal four-monthly installments into the bank accounts of farmers’ families across the country, through Direct Benefit Transfer (DBT) mode. Till now, Rs.\n\n2.81 lakh crores have been transferred through Direct Benefit Transfer (DBT) to more than 11 crores beneficiaries (Farmers) through various instalments."
+                },
+                {
+                    "SNo": 2,
+                    "Name": "Pradhan Mantri Kisan MaanDhan Yojana (PM-KMY)",
+                    "Purpose": "Pradhan Mantri Kisan Maandhan Yojna (PMKMY) is a central sector scheme launched on 12th September 2019 to provide security to the most vulnerable farmer families. PM-KMY is contributory scheme, small and marginal farmers (SMFs), subject to exclusion criteria, can opt to become member of the scheme by paying monthly subscription to the Pension Fund. Similar, amount will be contributed by the Central Government.\nThe applicants between the age group of 18 to 40 years will have to contribute between Rs. 55 to Rs. 200 per month till they attain the age of 60. PMKMY is taking care of the farmers during their old age and provides Rs. 3,000 monthly pension to the enrolled farmers once they attain 60 years of age, subject to exclusion criteria.\nLife Insurance Corporation (LIC) is pension fund manager and registration of beneficiaries is done through CSC and State Govts.\nSo far 23.38 lakh farmers have enrolled under the scheme."
+                },
+                {
+                    "SNo": 3,
+                    "Name": "Pradhan Mantri Fasal Bima Yojana (PMFBY)",
+                    "Purpose": "PMFBY was launched in 2016 in order to provide a simple and affordable crop insurance product to ensure comprehensive risk cover for crops to farmers against all non-preventable natural risks from pre-sowing to post-harvest and to provide adequate claim amount. The scheme is demand driven and available for all farmers A total of 5549.40 lakh farmer applications were insured under the\nscheme since 2016-17 and Rs 150589.10 crore has been paid as claim."
+                },
+                {
+                    "SNo": 4,
+                    "Name": "Modified Interest Subvention Scheme (MISS)",
+                    "Purpose": "The Interest Subvention Scheme (ISS) provides concessional short term agri-loans to the farmers practicing crop husbandry and other allied activities like animal husbandry, dairying and fisheries. ISS is available to farmers availing short term crop loans up to\nRs.3.00 lakh at an interest rate of 7% per annum for one year. Additional 3% subvention is also given to the farmers for prompt and\ntimely repayment of loans thus reducing the effective rate of interest to 4% per annum. The benefit of ISS is also available for post-harvest loans against Negotiable Warehouse Receipts (NWRs) on crop loans for a further period of six months post-harvest to small and marginal farmers having Kisan Credit Cards (KCCs), on occurrence of natural calamities and severe natural calamities. As on 05-01-2024, 465.42\nlakh new KCC applications have been sanctioned with a sanctioned credit limit of Rs. 5,69,974 crore as part of the drive."
+                },
+                {
+                    "SNo": 5,
+                    "Name": "Agriculture Infrastructure Fund (AIF)",
+                    "Purpose": "In order to address the existing infrastructure gaps and mobilize investment in agriculture infrastructure, Agri Infra Fund was launched under Aatmanirbhar Bharat Package. AIF was introduced with a vision to transform the agriculture infrastructure landscape of the country. The Agriculture Infrastructure Fund is a medium - long term debt financing facility for investment in viable projects for post- harvest management infrastructure and community farming assets through interest subvention and credit guarantee support. The Fund of Rs. 1 lakh crore under the scheme will be disbursed from FY 2020-21 to FY2025-26 and the support under the scheme will be provided for the duration of FY2020-21 to FY2032-33.\nUnder the scheme, Rs. 1 Lakh Crore will be provided by banks and financial institutions as loans with interest subvention of 3% per annum and credit guarantee coverage under CGTMSE for loans up to Rs. 2 Crores. Further, each entity is eligible to get the benefit of the scheme for up to 25 projects located in different LGD codes.\nEligible beneficiaries include Farmers, Agri-entrepreneurs, Start-ups, Primary Agricultural Credit Societies (PACS), Marketing Cooperative Societies, Farmer Producers Organizations(FPOs), Self Help Group (SHG), Joint Liability Groups (JLG), Multipurpose Cooperative Societies, Central/State agency or Local Body sponsored Public Private Partnership Projects, State Agencies, Agricultural Produce Market Committees (Mandis), National & State Federations of Cooperatives, Federations of FPOs (Farmer Produce Organizations) and Federations of Self Help Groups (SHGs).\nAs on 31-12-2023, Rs.33.209 Crores have been sanctioned for 44,912 projects under AIF, out of this total sanctioned amount, Rs 25,504 Crores is covered under scheme benefits. These sanctioned projects have mobilized an investment of Rs 56.471 Crores in agriculture sector."
+                },
+                {
+                    "SNo": 6,
+                    "Name": "Formation & Promotion of new 10,000 FPOs",
+                    "Purpose": "The Government of India launched the Central Sector Scheme (CSS) for “Formation and Promotion of 10,000 Farmer Producer Organizations (FPOs)” in the year 2020. The scheme has a total budgetary outlay of Rs.6865 crores. Formation & promotion of FPOs are to be done through Implementing Agencies (IAs), which further engage Cluster Based Business Organizations (CBBOs) to form & provide professional handholding support to FPOs for a\nperiod of 5 years."
+                },
+                {
+                    "SNo": 7,
+                    "Name": "National beekeeping and Honey Mission (NBHM)",
+                    "Purpose": "Keeping in view the importance of beekeeping, a new Central Sector Scheme entitled National Beekeeping & Honey Mission (NBHM) was launched in 2020 under Atma Nirbhar Bharat Abhiyan for its implementation in the field for overall promotion and development of scientific beekeeping & to achieve the goal of “Sweet Revolution”. Some of the achievements include;\nHoneybees/ beekeeping training modules have been uploaded on the NBHM portal in Hindi and English language for training and capacity building of beekeepers, farmers, extension functionaries and entrepreneurs.\nEstablishment of training module for honey bee breeders and queen rearers.\nA Common Digital Platform (Honeybee India) has been developed for ease of information flow to various stakeholders on honey bee colonies.\nDevelopment of technology to monitor and trace honey in the field.\nNational Level Entrepreneur Development Programme on beekeeping for the development of entrepreneurs in beekeeping and other value-added bee products. A total of 30 entrepreneurs have been trained under this programme.\nTraining and Capacity Building programmes have been conducted in identified Aspirational Districts, Tribal areas, North-Eastern region and Hilly States. Under the Programme, 28547 trainees have been trained till date.\n3 Mobile Lab have been established for Export Promotion of Honey.\n127 National Level Awareness Programmes (Online and offline) have been conducted to create awareness about NBHM among various stakeholders.\nUnder NBHM, a total of 1,64,648 Bee Colonies have been distributed to farmers/beneficiaries till date."
+                },
+                {
+                    "SNo": 8,
+                    "Name": "PM - Aspirational District Programme (ADP)",
+                    "Purpose": "To improve health, nutrition, education, agriculture, water resources, financial inclusion and basic infrastructure in 112 Aspirational Districts across the country, NITI Aayog launched the Aspirational District Programme (ADP) in 2018.\n\nAt the center of the strategy for these districts are convergence (of Central & State Schemes), collaboration (of Central, State level “Prabhari” Officers & District Collectors), and competition among districts driven by a mass Movement. Thus, ADP envisages rapid development with a grassroots approach."
+                },
+                {
+                    "SNo": 9,
+                    "Name": "Schemes for Promotion of Innovation and Entrepreneurship",
+                    "Purpose": "In order to foster the culture of innovation and entrepreneurship in the country, Ministry of Agriculture and Farmers Welfare has initiated various schemes and programs. Some of these are:\nAgriculture Innovation Partnership Programme (AIPP) under NAHEP\nAgripreneurship Orientation Programme under GKRA\nScheme for Agro-Marine Processing and Development of Agro-Processing Clusters (SAMPADA)\nVenture Capital Assistance Scheme (VCAS)\nCreation of Agri-Processing Infrastructure (through PPP) under RKVY-RAFTAAR"
+                },
+                {
+                    "SNo": 10,
+                    "Name": "Scheme of Formation and Promotion of 10,000 FPOs",
+                    "Purpose": "In order to bring desired momentum in farm sector through FPOs, Department of Agriculture, Cooperation & Farmers Welfare is implementing a Centrally Sponsored Scheme titled \"Formation and Promotion of 10,000 FPOs” with a special focus on formation of women led FPOs. The major components of the scheme include, Promotion & Formation of new FPOs, Capacity Building and Revival of existing FPOs, Market Linkage, Seed Capital & Revolving Fund, Interest Subvention, Promotion of Farmer Producer Companies (FPCs), Focus on Women Led FPOs."
+                },
+                {
+                    "SNo": 11,
+                    "Name": "RKVY-RAFTAAR (Remunerative Approaches for Agriculture and Allied sector Rejuvenation)",
+                    "Purpose": "The scheme aims at making farming remunerative and developing secondary agriculture in the states. The basic objective is to incentivize states in enhancing more allocation to Agriculture and Allied Sectors. The scheme funds activities related to creation of infrastructure in Agriculture and Allied sectors and improvement in the access of farmers to various inputs. The scheme focuses on financing Agriculture and Allied activities taking place beyond the farm-gate, thus promoting Agri-Entrepreneurship and development of Agri-Business sector. The scheme was approved by the Cabinet Committee on Economic Affairs on 6th February, 2019 with an outlay of Rs. 33,269.97 crore for three years, starting from 2017-18."
+                },
+                {
+                    "SNo": 12,
+                    "Name": "Pradhan Mantri Kisan SAMPADA Yojana (PMKSY)",
+                    "Purpose": "The scheme aims to supplement agriculture, modernize processing and decrease agriculture-waste. The mission would be implemented from 2016-20 and has an outlay of INR 6,000 crore. The scheme aims to: create processing and preservation capabilities; modernize existing units; increase value addition for export and domestic markets; increase agriculture waste conversion to bio-fertilizer, bio-energy etc.; and generate employment opportunities. The scheme will be implemented by the Ministry of Food Processing Industries."
+                },
+                {
+                    "SNo": 13,
+                    "Name": "Central Sector Scheme on Beekeeping (CSB)",
+                    "Purpose": "The CSB is for promotion & development of scientific beekeeping in the country for achieving the goal of ‘Sweet Revolution’. The CSB was launched in 2017 and is being implemented in 31 States/UTs. It has various components like training, capacity building, assistance for setting up Integrated Beekeeping Development Centres (IBDCs) and technology transfer etc."
+                },
+                {
+                    "SNo": 14,
+                    "Name": "Promotion & Development of Nutri-Cereals under NFSM",
+                    "Purpose": "Nutri-Cereals comprise of millets such as jowar, bajra, ragi etc. These are rich in micro-nutrients, have high nutritive value and climate-resilient. Promoting production of Nutri-Cereals will contribute to nutritional security, climate-resilient agriculture and risk management. The scheme aims to: enhance production, productivity and nutritional benefits of Nutri-Cereals; improve farmers’ income; and promote diversified cropping systems.\nThe scheme will be implemented through NFSM."
+                },
+                {
+                    "SNo": 15,
+                    "Name": "Soil Health Management (SHM)",
+                    "Purpose": "The Soil Health Management (SHM) scheme was launched in 2015 with a budget outlay of Rs. 4258 crore for five years (2015-16 to 2019-20). The scheme is being implemented as a sub-mission of National Mission for Sustainable Agriculture (NMSA) to promote soil health through judicious use of inputs, support systems and appropriate soil health monitoring tools and create mass awareness about the importance of soil health and its productivity enhancement."
+                },
+                {
+                    "SNo": 16,
+                    "Name": "PM-AASHA",
+                    "Purpose": "The government has launched a new umbrella scheme PM-AASHA (Pradhan Mantri Annadata Aay Sanrakshan Abhiyan) to ensure remunerative prices to the farmers for their produce as announced in the Union Budget for 2018. This scheme consists of 3 sub-schemes:\nPrice Support Scheme (PSS)\nPrice Deficiency Payment Scheme (PDPS) also known as Bhavantar Bhugtan Yojana (BBY)\nPilot of Private Procurement and Stockist Scheme (PPPS)."
+                },
+                {
+                    "SNo": 17,
+                    "Name": "Blue Revolution: Integrated Development and Management of Fisheries",
+                    "Purpose": "The focus of the Blue Revolution Scheme is to increase fish production and productivity from aquaculture and fisheries resources of the inland and marine fisheries sector including deep sea fishing. The schemes under Blue Revolution provide financial assistance for creation of fisheries infrastructure facilities both in marine and inland fisheries sectors, for fishermen welfare, strengthening of database and geographical information system of the fisheries sector and its infrastructure, in the country. The Blue Revolution is implemented by the Department of Fisheries."
+                },
+                {
+                    "SNo": 18,
+                    "Name": "Operation Greens Scheme",
+                    "Purpose": "To stabilise the supply of Tomato, Onion and Potato (TOP) crops and to ensure their availability throughout the country round the year without price volatility, the Ministry of Food Processing Industries is implementing the Scheme \"Operation Greens\". The scheme was announced by the Government of India on 14th September, 2018 with an outlay of Rs. 500 crores to be implemented over a period of three years from 2018-19."
+                },
+                {
+                    "SNo": 19,
+                    "Name": "Pradhan Mantri Matsya Sampada Yojana (PMMSY)",
+                    "Purpose": "PMMSY is a flagship scheme of the Government of India to promote ‘Blue Revolution’ with a focus on creating an enabling environment for integrated and holistic development and management of fisheries for socio-economic development of the fishers and fish farmers. PMMSY scheme aims at enhancing fish production and productivity, fostering species diversification, modernizing infrastructure, strengthening value chain, improving quality and safety, reducing post-harvest losses, creating employment opportunities and doubling income of fishers and fish farmers. The scheme is being implemented during a period of 5 years from FY 2020-21 to FY 2024-25, at a total estimated investment of Rs. 20,050 crore comprising central share of Rs. 9,407 crore, state share of Rs. 4,880 crore and beneficiary share of Rs. 5,763 crore. The scheme aims to attract private investment in creation and management of fisheries infrastructure facilities through a combination of subsidies, interest subvention and credit guarantee."
+                },
+                {
+                    "SNo": 20,
+                    "Name": "Value Chain Creation for Fruits and Vegetables under PMKSY",
+                    "Purpose": "The Scheme for Value Chain Creation for Fruits and Vegetables (VCCFV) was implemented in 2011-12 under the National Horticulture Mission (NHM) which was restructured and subsumed into the Mission for Integrated Development of Horticulture (MIDH) during 2014-15. VCCFV scheme was restructured and approved for implementation during XII Plan with an outlay of Rs. 1783.17 crore. It has the following components: Setting up of Backward and Forward Linkages, Creation and Expansion of Food Processing and Preservation Capacities, Strategic Development of Agri-Business Clusters, Establishment of Market Intelligence and Information Network (MlIN) and Capacity Building and Skill Development."
+                },
+                {
+                    "SNo": 21,
+                    "Name": "Re-Structured Weather Based Crop Insurance Scheme (WBCIS)",
+                    "Purpose": "The Weather Based Crop Insurance Scheme (WBCIS) was re-structured and launched by the Government of India from Rabi 2013-14 season onwards to replace the National Agricultural Insurance Scheme (NAIS) and the Modified National Agricultural Insurance Scheme (MNAIS). WBCIS aims to provide insurance protection to the farmers against losses of crops due to aberrant weather incidences like rainfall, temperature etc. It also provides financial support to the insured farmers in case of crop loss/damage attributable to these defined weather incidences."
+                },
+                {
+                    "SNo": 22,
+                    "Name": "Pradhan Mantri Annadata Aay Sanrakshan Abhiyan (PM-AASHA)",
+                    "Purpose": "PM-AASHA was launched on 19th September, 2018. It consists of 3 sub-schemes, namely Price Support Scheme (PSS), Price Deficiency Payment Scheme (PDPS) and Pilot of Private Procurement and Stockist Scheme (PPPS), to ensure remunerative prices to the farmers for their produce. These schemes are aimed at protecting farmers from distress sale and ensuring assured income for their produce."
+                },
+                {
+                    "SNo": 23,
+                    "Name": "Promotion and Strengthening of Agricultural Mechanization for In-situ Management of Crop Residue",
+                    "Purpose": "The Scheme aims to reduce crop residue burning by farmers in the fields and to improve soil health and fertility.\nThe Scheme has the following components:\n\n    - Financial assistance to the states for procurement of machines/equipment.\n    - Information, education and communication (IEC) activities to create awareness among farmers.\n    - Incentives to farmers and custom hiring centres (CHCs) for purchase of machines.\n\n"
+                },
+                {
+                    "SNo": 24,
+                    "Name": "National Food Security Mission (NFSM)",
+                    "Purpose": "The National Food Security Mission (NFSM) is a Centrally Sponsored Scheme launched in 2007-08. The scheme aims to increase the production of rice, wheat and pulses through area expansion and productivity enhancement in a sustainable manner in the identified districts of the country."
+                },
+                {
+                    "SNo": 25,
+                    "Name": "Paramparagat Krishi Vikas Yojana (PKVY)",
+                    "Purpose": "Paramparagat Krishi Vikas Yojana (PKVY) is an initiative to promote organic farming in the country. Under PKVY, organic farming is promoted through the adoption of organic village by cluster approach and PGS certification. The scheme aims to encourage farmers to adopt eco-friendly concept of cultivation and reduce their dependence on fertilizers and agricultural chemicals to improve yields and soil health."
+                },
+                {
+                    "SNo": 26,
+                    "Name": "Pradhan Mantri Krishi Sinchai Yojana (PMKSY)",
+                    "Purpose": "The Pradhan Mantri Krishi Sinchayee Yojana (PMKSY) was launched on 1st July 2015 with the motto of 'Har Khet Ko Paani' for providing end-to-end solutions in irrigation supply chain, viz. water sources, distribution network and farm level applications. PMKSY not only focuses on creating sources for assured irrigation, but also creating protective irrigation by harnessing rainwater at micro level through 'Jal Sanchay' and 'Jal Sinchan'. The implementation of PMKSY is being monitored by Ministry of Water Resources, River Development & Ganga Rejuvenation and 100% funding is provided by the Central Government to the States/UTs for implementing the projects under PMKSY."
+                }
+            ];
+
+            const cardContainer = document.getElementById('card-container');
+
+            // Function to create a card for each scheme
+            function createCard(scheme) {
+                const card = document.createElement('div');
+                card.classList.add('col-md-6');
+
+                const cardContent = `
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">${scheme.Name}</h5>
+                            <h6 class="card-subtitle mb-2 text-muted">Scheme No: ${scheme.SNo}</h6>
+                            <p class="card-text">${scheme.Purpose}</p>
+                        </div>
+                    </div>
+                `;
+
+                card.innerHTML = cardContent;
+                cardContainer.appendChild(card);
+            }
+
+            // Function to initialize the page with cards
+            function initializePage() {
+                schemeJSON.forEach(scheme => {
+                    createCard(scheme);
+                });
+            }
+
+            initializePage();
+        });
+    </script>
+</body>
+
+</html>
